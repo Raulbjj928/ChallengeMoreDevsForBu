@@ -6,3 +6,11 @@ C:\Estudos\ExercicioFinal\ExercicioFinal\bin\Debug\ExercicioFinal.exe
 C:\Estudos\ExercicioFinal\ExercicioFinal\bin\Debug\ExercicioFinal.pdb
 C:\Estudos\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.exe
 C:\Estudos\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.pdb
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.csproj.AssemblyReference.cache
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.csproj.SuggestedBindingRedirects.cache
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.csproj.CoreCompileInputs.cache
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.exe
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\obj\Debug\ExercicioFinal.pdb
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\bin\Debug\ExercicioFinal.exe.config
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\bin\Debug\ExercicioFinal.exe
+C:\Estudos\ChallengeMoreDevsForBu\ExercicioFinal\ExercicioFinal\bin\Debug\ExercicioFinal.pdb

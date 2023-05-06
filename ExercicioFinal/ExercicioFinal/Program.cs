@@ -12,7 +12,8 @@ namespace ExercicioFinal
         {
             while (true)
             {
-                List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0); ;
+                List<List<string[]>> Proofs = new List<List<string[]>>(); 
+                List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0); 
                 List<string[]> studentExams = new List<string[]>();
 
                 //MOCKTEST
@@ -45,8 +46,7 @@ namespace ExercicioFinal
                             questionsAndAnswers.Clear();
                             Console.WriteLine("Digite o numero de questões que deseja cadastrar:");
                             int qtt = int.Parse(Console.ReadLine());
-                            questionsAndAnswers = ;
-                            questionsAndAnswers.Add(Proof.RegisterQuestions(qtt));
+                            Proofs.Add(Proof.RegisterQuestions(qtt));
                             break;
 
                         case 2:
@@ -141,9 +141,19 @@ namespace ExercicioFinal
                     {
                         Console.WriteLine("Nome do aluno:");
                         string studentsName = Console.ReadLine().ToUpper();
-                        
-                        Console.WriteLine("Nome do Curso:");
-                        string subject = Console.ReadLine().ToUpper();
+
+                        Console.WriteLine("\nCURSO\nDigite a opção desejada:\n1 - CSHARP \n2 - FLUTTER\n3 - DEVOPS\n4 - JAVA");
+                        string subject = Console.ReadLine();
+
+                        switch (subject)
+                        {
+                            case "1": subject = "CSHARP"; break;
+                            case "2": subject = "FLUTTER"; break;
+                            case "3": subject = "DEVOPS"; break;
+                            case "4": subject = "JAVA"; break;
+                            default: break;
+
+                        }
 
                         string[] studentTest = Proof.ApplyTest(studentsName, subject, questionsAndAnswers[1], questionsAndAnswers[2]);
 

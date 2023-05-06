@@ -17,29 +17,39 @@ namespace ExercicioFinal
             if (totalQuestions == 0)
             {
                 questions = new string[10] {
-                    "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?",
                     "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?",
-                    "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?"};
+                    "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?",
+                    "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?", "A, B, C ou D ?"};
 
                  answers = new string[10] { "A", "B", "C", "D", "E", "E", "D", "C", "B", "A" };
-                 subjectAndTeacher = new string[2] { "PROWAY", "CSHARP - ONLINE" };
+                 subjectAndTeacher = new string[2] { "PROWAY", "CSHARP" };
             }
             else
             {              
                 for (int i = 0; i <= 0; i++)
                 {
-                    Console.WriteLine("Professor:");
+                    Console.WriteLine("Professor ministrador da avaliação:");
                     string teacher = Console.ReadLine();
                     subjectAndTeacher[0] = teacher;
 
-                    Console.WriteLine("Curso:");
+                    Console.WriteLine("\nCURSO\nDigite a opção desejada:\n1 - CSHARP \n2 - FLUTTER\n3 - DEVOPS\n4 - JAVA");
                     string subject = Console.ReadLine();
+
+                    switch (subject)
+                    {
+                        case "1": subject = "CSHARP"; break;
+                        case "2": subject = "FLUTTER"; break;
+                        case "3": subject = "DEVOPS"; break;
+                        case "4": subject = "JAVA"; break;
+                        default: break;
+
+                    }
                     subjectAndTeacher[1] = subject;
                 }
                 for (int i = 0; i <= totalQuestions - 1; i++)
                 {
                     Console.WriteLine("Digite a questão:");
-                    string question = Console.ReadLine();
+                    string question = "Digite A, B, C, OU D para responder: " + Console.ReadLine();
                     questions[i] = question;
 
                     Console.WriteLine("Digite a opção correta:");
