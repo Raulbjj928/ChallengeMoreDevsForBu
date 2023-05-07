@@ -10,11 +10,11 @@ namespace ExercicioFinal
     {
         static void Main(string[] args)
         {
+            List<List<string[]>> proofs = new List<List<string[]>>(); 
+            List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0); 
+            List<string[]> studentExams = new List<string[]>();
             while (true)
             {
-                List<List<string[]>> Proofs = new List<List<string[]>>(); 
-                List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0); 
-                List<string[]> studentExams = new List<string[]>();
 
                 //MOCKTEST
                 string[] test = new string[] { "RAUL", "CSHARP", "10" };
@@ -39,7 +39,7 @@ namespace ExercicioFinal
                             questionsAndAnswers.Clear();
                             Console.WriteLine("Digite o numero de questões que deseja cadastrar:");
                             int qtt = int.Parse(Console.ReadLine());
-                            Proofs.Add(Proof.RegisterQuestions(qtt));
+                            proofs.Add(Proof.RegisterQuestions(qtt));
 
                             break;
 
@@ -85,7 +85,9 @@ namespace ExercicioFinal
 
                         string subject = Proof.ChooseCourse();
 
-                        string[] studentTest = Proof.ApplyTest(studentsName, subject, questionsAndAnswers[1], questionsAndAnswers[2]);
+                        var proof = proofs.Last();
+
+                        string[] studentTest = Proof.ApplyTest(studentsName, subject, proof[1], proof[2]);
 
                         studentExams.Add(studentTest);
                     }
