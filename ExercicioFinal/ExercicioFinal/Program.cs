@@ -10,23 +10,24 @@ namespace ExercicioFinal
     {
         static void Main(string[] args)
         {
-            List<List<string[]>> proofs = new List<List<string[]>>(); 
-            List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0); 
+            List<List<string[]>> proofs = new List<List<string[]>>();
+            List<string[]> questionsAndAnswers = Proof.RegisterQuestions(0);
             List<string[]> studentExams = new List<string[]>();
-            while (true)
-            {
 
+            while (true)
+            {                
                 //MOCKTEST
                 string[] test = new string[] { "RAUL", "CSHARP", "10" };
-                string[] test2 = new string[] { "TASSIA", "CSHARP", "10" };
+                string[] test2 = new string[] { "GIOVANNA", "CSHARP", "8" };
                 string[] test3 = new string[] { "JOÃO", "CSHARP", "0" };
                 studentExams.Add(test);
                 studentExams.Add(test2);
                 studentExams.Add(test3);
 
                 Console.WriteLine("\nProway Cursos \nDigite: ");
-                Console.WriteLine("(1) Professor");
-                Console.WriteLine("(2) Aluno");
+                Console.WriteLine("1 - Para PROFESSOR");
+                Console.WriteLine("2 - Para ALUNO");
+                Console.WriteLine("Qualqur outro numero para sair.");
                 int opt = int.Parse(Console.ReadLine()); 
 
                 if (opt == 1)
@@ -54,7 +55,7 @@ namespace ExercicioFinal
                             break; 
 
                         case 4:
-                            Console.WriteLine("\nO total de alunos que utilizão o sistema é: " + studentExams.Count);
+                            Console.WriteLine("\nO total de alunos que realizaram a prova: " + studentExams.Count);
 
                             break; 
 
@@ -64,7 +65,11 @@ namespace ExercicioFinal
                             break; 
 
                         case 6:
-                            Proof.CheckAssessmentInformation(questionsAndAnswers);
+                            List<string[]> proof = new List<string[]>();
+
+                            if (proofs.Count == 0) proof = questionsAndAnswers; else proof = proofs.Last();
+
+                            Proof.CheckAssessmentInformation(proof);
                             
                             break; 
                         case 0:
@@ -82,10 +87,11 @@ namespace ExercicioFinal
                     {
                         Console.WriteLine("Nome do aluno:");
                         string studentsName = Console.ReadLine().ToUpper();
-
                         string subject = Proof.ChooseCourse();
 
-                        var proof = proofs.Last();
+                        List<string[]> proof = new List<string[]>();
+
+                        if (proofs.Count == 0) proof = questionsAndAnswers; else proof = proofs.Last();
 
                         string[] studentTest = Proof.ApplyTest(studentsName, subject, proof[1], proof[2]);
 
@@ -98,7 +104,7 @@ namespace ExercicioFinal
                 }
                 else
                 {
-                    Console.WriteLine("Opção invalida!");
+                    break;
                 }
 
             }

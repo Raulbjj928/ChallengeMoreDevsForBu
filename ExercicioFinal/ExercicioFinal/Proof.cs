@@ -18,6 +18,7 @@ namespace ExercicioFinal
                 questions = new string[10] { label, label, label, label, label, label, label, label, label, label };
 
                 answers = new string[10] { "A", "B", "C", "D", "E", "E", "D", "C", "B", "A" };
+
                 subjectAndTeacher = new string[2] { "PROWAY", "CSHARP" };
             }
             else
@@ -36,10 +37,12 @@ namespace ExercicioFinal
                 {
                     Console.WriteLine("Digite a questão:");
                     string question = label + Console.ReadLine();
+
                     questions[i] = question;
 
                     Console.WriteLine("Digite a opção correta:");
                     string answer = Console.ReadLine().ToUpper();
+
                     answers[i] = answer;
                 }
             }
@@ -52,7 +55,7 @@ namespace ExercicioFinal
         {
             int fullMark = 10;
 
-            for (int i = 0; i <= testAnswer.Length - 1; i++)
+            for (int i = 0; i < testAnswer.Length; i++)
             {
                 Console.WriteLine(questions[i]);
                 string option = Console.ReadLine().ToUpper();
@@ -63,7 +66,9 @@ namespace ExercicioFinal
                 }
             }
 
-            Console.WriteLine("Nota obtida: " + fullMark);
+            Console.WriteLine("\n______________________________________");
+            Console.WriteLine("\nNota obtida: " + fullMark);
+            Console.WriteLine("______________________________________");
 
             string[] studentInfo = new string[] { student, subject, fullMark.ToString() };
 
@@ -72,17 +77,28 @@ namespace ExercicioFinal
 
         public static string ChooseCourse()
         {
-            Console.WriteLine("\nCURSO\nDigite a opção desejada:\n1 - CSHARP \n2 - FLUTTER\n3 - DEVOPS\n4 - JAVA");
-            string subject = Console.ReadLine();
+            string subject;
 
-            switch (subject)
+            while (true)
             {
-                case "1": subject = "CSHARP"; break;
-                case "2": subject = "FLUTTER"; break;
-                case "3": subject = "DEVOPS"; break;
-                case "4": subject = "JAVA"; break;
-                default: Console.WriteLine("opção invalida!"); break;
-            }
+
+                Console.WriteLine("\n______________________________________");
+                Console.WriteLine("\nCURSO\nDigite a opção desejada:\n1 - CSHARP \n2 - FLUTTER\n3 - DEVOPS\n4 - JAVA");
+                Console.WriteLine("\n______________________________________");
+                subject = Console.ReadLine();
+
+                switch (subject)
+                {
+                    case "1": subject = "CSHARP"; break;
+                    case "2": subject = "FLUTTER"; break;
+                    case "3": subject = "DEVOPS"; break;
+                    case "4": subject = "JAVA"; break;
+                    default: Console.WriteLine("\n OPÇÃO INVALIDA!"); continue;
+                }
+                Console.WriteLine($"\nVocê escolheu {subject}\n");
+
+                break;
+            };
 
             return subject;
         }
@@ -122,17 +138,19 @@ namespace ExercicioFinal
                 }
             }
 
-            for (int i = 0; i <= 0; i++)
+            for (int i = 0; i == 0; i++)
             {
-                Console.WriteLine("\nMaior nota:");
+                Console.WriteLine("\n______________________________________");
+                Console.WriteLine("\nMAIOR nota:___________________________");
                 Console.WriteLine("Nome: " + bestGrade[0]);
                 Console.WriteLine("Curso: " + bestGrade[1]);
                 Console.WriteLine("Nota: " + bestGrade[2]);
 
-                Console.WriteLine("\nMenor nota:");
+                Console.WriteLine("\nMENOR nota:___________________________");
                 Console.WriteLine("Nome: " + worstGrade[0]);
                 Console.WriteLine("Curso: " + worstGrade[1]);
                 Console.WriteLine("Nota: " + worstGrade[2]);
+                Console.WriteLine("\n______________________________________");
             }
         }
 
@@ -140,9 +158,11 @@ namespace ExercicioFinal
         {
             for (int i = 0; i < studentExams.Count; i++)
             {
+                Console.WriteLine("\n______________________________________");
                 Console.WriteLine("\nNome: " + studentExams[i][0]);
                 Console.WriteLine("Curso: " + studentExams[i][1]);
                 Console.WriteLine("Nota: " + studentExams[i][2]);
+                Console.WriteLine("\n______________________________________");
             }
         }
 
@@ -160,9 +180,9 @@ namespace ExercicioFinal
 
         public static void CheckAssessmentInformation(List<string[]> questionsAndAnswers)
         {
-            for (int i = 0; i <= 0; i++)
+            for (int i = 0; i == 0; i++)
             {
-                Console.WriteLine("______________________________________\nINFORMAÇÕES DA PROVA : ");
+                Console.WriteLine("\nINFORMAÇÕES DA PROVA______________________________________ \n");
                 Console.WriteLine("Nome do ministrador da prova: " + questionsAndAnswers[0][0]);
                 Console.WriteLine("Curso: " + questionsAndAnswers[0][1]);
                 Console.WriteLine("\nQUESTÕES DA PROVA: ");
@@ -173,7 +193,7 @@ namespace ExercicioFinal
                 Console.WriteLine("\nGABARITO: ");
                 foreach (var item in questionsAndAnswers[2])
                 {
-                    Console.Write(item + " - ");
+                    Console.Write(item + " ");
                 }
                 Console.WriteLine("\n______________________________________");
             }
@@ -186,16 +206,21 @@ namespace ExercicioFinal
 
             string subject = ChooseCourse();
 
+            int j = 0; 
             for (int i = 0; i < studentExams.Count; i++)
             {
                 if (studentExams[i][0] == studentsName && studentExams[i][1] == subject)
                 {
+                    j++;
+                    Console.WriteLine("\nINFORMAÇÕES DA SUA AVALIAÇÃO______________\n");
                     Console.WriteLine("Nome: " + studentExams[i][0]);
                     Console.WriteLine("Curso: " + studentExams[i][1]);
                     Console.WriteLine("Nota: " + studentExams[i][2]);
+                    Console.WriteLine("\n______________________________________");
                 }
 
             }
+            Console.WriteLine(j == 0 ? "\nALUNO NÃO ENCONTRADO!\n" : "") ;
         }
     }
 }
